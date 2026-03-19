@@ -1,0 +1,93 @@
+@import "tailwindcss";
+
+@theme {
+  --color-black: #09090B;
+  --color-black-light: #141414;
+  --color-red: #CC0000;
+  --color-white: #FFFFFF;
+  --color-gray: #8A8A8A;
+
+  --font-heading: 'Inter', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+/* Base styles */
+
+body {
+  background-color: #09090B;
+  color: #FFFFFF;
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #09090B;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #CC0000;
+  border-radius: 3px;
+}
+
+/* Selection */
+::selection {
+  background-color: #CC0000;
+  color: #FFFFFF;
+}
+
+/* Loader animation for the A monogram */
+@keyframes drawStroke {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Slide to unlock button */
+.slide-track {
+  background: linear-gradient(90deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+}
+
+/* Red fill hover effect for buttons */
+.btn-red-fill {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.btn-red-fill::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background-color: #CC0000;
+  transition: width 0.4s ease;
+  z-index: -1;
+}
+
+.btn-red-fill:hover::before {
+  width: 100%;
+}
+
+/* Scroll bounce for scroll indicator */
+@keyframes scrollBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(12px); }
+}

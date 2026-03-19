@@ -1,0 +1,90 @@
+{
+  "nav": {
+    "services": "Services",
+    "results": "Résultats",
+    "process": "Process",
+    "ecosystem": "Écosystème",
+    "testimonials": "Témoignages",
+    "contact": "Contact",
+    "bookCall": "Réserver un appel"
+  },
+  "hero": {
+    "title1": "Accélérez votre",
+    "title2": "expansion blockchain",
+    "subtitle": "De la stratégie au financement jusqu'à l'exécution — nous accompagnons les entreprises tech dans leur croissance sur les écosystèmes blockchain.",
+    "cta": "Réserver un appel stratégique",
+    "scroll": "Scroll pour découvrir"
+  },
+  "services": {
+    "badge": "Ce qu'on fait",
+    "title": "Trois piliers pour votre croissance Web3",
+    "strategy": {
+      "title": "Stratégie",
+      "desc": "Audit de positionnement, identification des écosystèmes cibles, roadmap d'intégration et go-to-market adapté au Web3."
+    },
+    "funding": {
+      "title": "Financement",
+      "desc": "Structuration de dossiers de grants, mise en relation avec les fondations, et accompagnement jusqu'à l'obtention des financements."
+    },
+    "execution": {
+      "title": "Exécution",
+      "desc": "Déploiement opérationnel, intégrations techniques, partenariats stratégiques et suivi de performance sur chaque écosystème."
+    }
+  },
+  "results": {
+    "badge": "Résultats",
+    "title": "Des chiffres qui parlent",
+    "raised": "Levés en grants",
+    "projects": "Projets accompagnés",
+    "ecosystems": "Écosystèmes partenaires",
+    "success": "Taux de succès"
+  },
+  "process": {
+    "badge": "Comment ça marche",
+    "title": "Un process simple et éprouvé",
+    "step1": {
+      "title": "Discovery Call",
+      "desc": "On analyse votre projet, vos objectifs et on identifie les écosystèmes les plus pertinents pour votre croissance."
+    },
+    "step2": {
+      "title": "Stratégie sur-mesure",
+      "desc": "On construit ensemble votre roadmap : positionnement, écosystèmes cibles, plan de financement et timeline."
+    },
+    "step3": {
+      "title": "Exécution & Financement",
+      "desc": "On déploie la stratégie : dossiers de grants, introductions aux fondations, intégrations techniques."
+    },
+    "step4": {
+      "title": "Scale & Optimisation",
+      "desc": "On mesure les résultats, on optimise et on étend votre présence sur de nouveaux écosystèmes."
+    }
+  },
+  "ecosystem": {
+    "badge": "Écosystème",
+    "title": "Ils nous font confiance",
+    "subtitle": "Nous travaillons avec les fondations blockchain les plus établies de l'industrie."
+  },
+  "testimonials": {
+    "badge": "Témoignages",
+    "title": "Ce que disent nos clients"
+  },
+  "contact": {
+    "title": "Prêt à accélérer ?",
+    "subtitle": "Réservez un appel stratégique de 30 minutes pour discuter de votre projet.",
+    "slideText": "Glissez pour réserver",
+    "formTitle": "Ou envoyez-nous un message",
+    "name": "Nom complet",
+    "email": "Email",
+    "message": "Votre message",
+    "send": "Envoyer",
+    "sent": "Message envoyé !",
+    "namePlaceholder": "John Doe",
+    "emailPlaceholder": "john@example.com",
+    "messagePlaceholder": "Décrivez brièvement votre projet..."
+  },
+  "footer": {
+    "rights": "Tous droits réservés.",
+    "privacy": "Politique de confidentialité",
+    "legal": "Mentions légales"
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "nav": {
+    "services": "Services",
+    "results": "Results",
+    "process": "Process",
+    "ecosystem": "Ecosystem",
+    "testimonials": "Testimonials",
+    "contact": "Contact",
+    "bookCall": "Book a call"
+  },
+  "hero": {
+    "title1": "Accelerate your",
+    "title2": "blockchain expansion",
+    "subtitle": "From strategy to funding to execution — we help tech companies grow across blockchain ecosystems.",
+    "cta": "Book a strategy call",
+    "scroll": "Scroll to discover"
+  },
+  "services": {
+    "badge": "What we do",
+    "title": "Three pillars for your Web3 growth",
+    "strategy": {
+      "title": "Strategy",
+      "desc": "Positioning audit, target ecosystem identification, integration roadmap and Web3-adapted go-to-market."
+    },
+    "funding": {
+      "title": "Funding",
+      "desc": "Grant application structuring, foundation introductions, and end-to-end support until funding is secured."
+    },
+    "execution": {
+      "title": "Execution",
+      "desc": "Operational deployment, technical integrations, strategic partnerships and performance tracking across ecosystems."
+    }
+  },
+  "results": {
+    "badge": "Results",
+    "title": "Numbers that speak",
+    "raised": "Raised in grants",
+    "projects": "Projects supported",
+    "ecosystems": "Partner ecosystems",
+    "success": "Success rate"
+  },
+  "process": {
+    "badge": "How it works",
+    "title": "A simple, proven process",
+    "step1": {
+      "title": "Discovery Call",
+      "desc": "We analyze your project, your goals and identify the most relevant ecosystems for your growth."
+    },
+    "step2": {
+      "title": "Tailored Strategy",
+      "desc": "We build your roadmap together: positioning, target ecosystems, funding plan and timeline."
+    },
+    "step3": {
+      "title": "Execution & Funding",
+      "desc": "We deploy the strategy: grant applications, foundation introductions, technical integrations."
+    },
+    "step4": {
+      "title": "Scale & Optimization",
+      "desc": "We measure results, optimize and expand your presence across new ecosystems."
+    }
+  },
+  "ecosystem": {
+    "badge": "Ecosystem",
+    "title": "They trust us",
+    "subtitle": "We work with the most established blockchain foundations in the industry."
+  },
+  "testimonials": {
+    "badge": "Testimonials",
+    "title": "What our clients say"
+  },
+  "contact": {
+    "title": "Ready to accelerate?",
+    "subtitle": "Book a 30-minute strategy call to discuss your project.",
+    "slideText": "Slide to book",
+    "formTitle": "Or send us a message",
+    "name": "Full name",
+    "email": "Email",
+    "message": "Your message",
+    "send": "Send",
+    "sent": "Message sent!",
+    "namePlaceholder": "John Doe",
+    "emailPlaceholder": "john@example.com",
+    "messagePlaceholder": "Briefly describe your project..."
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "privacy": "Privacy Policy",
+    "legal": "Legal Notice"
+  }
+}
