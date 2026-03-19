@@ -124,7 +124,7 @@ export default function IntroZoom() {
           scale: 1,
           duration: 0.3,
           ease: 'power1.out',
-          onComplete: () => breathe.pause(),
+          onComplete: () => { breathe.pause(); },
         });
       },
       onEnterBack: () => {
