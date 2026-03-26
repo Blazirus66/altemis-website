@@ -11,7 +11,7 @@
   "hero": {
     "title1": "Accélérez votre",
     "title2": "expansion blockchain",
-    "subtitle": "De la stratégie au financement jusqu'à l'exécution — nous accompagnons les entreprises tech dans leur croissance sur les écosystèmes blockchain.",
+    "subtitle": "De la stratégie au financement jusqu'au déploiement, nous vous accompagnons dans votre croissance sur les écosystèmes blockchain les plus pertinents pour votre entreprise.",
     "cta": "Réserver un appel stratégique",
     "scroll": "Scroll pour découvrir"
   },
@@ -20,15 +20,15 @@
     "title": "Trois piliers pour votre croissance Web3",
     "strategy": {
       "title": "Stratégie",
-      "desc": "Audit de positionnement, identification des écosystèmes cibles, roadmap d'intégration et go-to-market adapté au Web3."
+      "desc": "Analyse du positionnement et identification des écosystèmes blockchain les plus pertinents au regard de vos enjeux, qu'il s'agisse d'acquisition, d'accès à de nouveaux types de clients ou d'évolution produit."
     },
     "funding": {
       "title": "Financement",
-      "desc": "Structuration de dossiers de grants, mise en relation avec les fondations, et accompagnement jusqu'à l'obtention des financements."
+      "desc": "Cadrage et structuration du dossier, mise en relation avec les fondations blockchain et les acteurs les plus pertinents, avec un suivi à chaque étape jusqu'à l'obtention du financement."
     },
     "execution": {
-      "title": "Exécution",
-      "desc": "Déploiement opérationnel, intégrations techniques, partenariats stratégiques et suivi de performance sur chaque écosystème."
+      "title": "Déploiement",
+      "desc": "Prise en charge du développement sur les technologies propres aux écosystèmes ciblés, en collaboration avec vos équipes. Un accompagnement pensé pour livrer vite et monter en compétence durablement."
     }
   },
   "results": {
@@ -43,7 +43,7 @@
     "badge": "Comment ça marche",
     "title": "Un process simple et éprouvé",
     "step1": {
-      "title": "Discovery Call",
+      "title": "Appel découverte",
       "desc": "On analyse votre projet, vos objectifs et on identifie les écosystèmes les plus pertinents pour votre croissance."
     },
     "step2": {
@@ -55,14 +55,14 @@
       "desc": "On déploie la stratégie : dossiers de grants, introductions aux fondations, intégrations techniques."
     },
     "step4": {
-      "title": "Scale & Optimisation",
-      "desc": "On mesure les résultats, on optimise et on étend votre présence sur de nouveaux écosystèmes."
+      "title": "Suivi & Projection",
+      "desc": "On mesure les résultats, ajuste la stratégie et identifie ensemble les prochaines étapes de votre développement."
     }
   },
   "ecosystem": {
     "badge": "Écosystème",
-    "title": "Ils nous font confiance",
-    "subtitle": "Nous travaillons avec les fondations blockchain les plus établies de l'industrie."
+    "title": "Écosystème & Partenaires",
+    "subtitle": "Notre expertise s'est construite au contact des acteurs et des blockchains institutionnels. Elle s'étend aujourd'hui à l'ensemble des écosystèmes Web3 qui partagent cette culture de rigueur."
   },
   "testimonials": {
     "badge": "Témoignages",
@@ -77,7 +77,9 @@
     "email": "Email",
     "message": "Votre message",
     "send": "Envoyer",
+    "sending": "Envoi en cours...",
     "sent": "Message envoyé !",
+    "error": "Erreur, réessayez",
     "namePlaceholder": "John Doe",
     "emailPlaceholder": "john@example.com",
     "messagePlaceholder": "Décrivez brièvement votre projet..."

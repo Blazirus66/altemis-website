@@ -4,10 +4,10 @@ import { useTranslations } from 'next-intl';
 import { useFadeInUp, useCountUp } from '@/hooks/useScrollAnimation';
 
 const STATS = [
-  { key: 'raised', value: 2.5, prefix: '$', suffix: 'M+', decimals: 1 },
-  { key: 'projects', value: 30, prefix: '', suffix: '+', decimals: 0 },
-  { key: 'ecosystems', value: 12, prefix: '', suffix: '', decimals: 0 },
-  { key: 'success', value: 95, prefix: '', suffix: '%', decimals: 0 },
+  { key: 'raised', value: 4.5, prefix: '$', suffix: 'M', decimals: 1 },
+  { key: 'projects', value: 50, prefix: '', suffix: '+', decimals: 0 },
+  { key: 'ecosystems', value: 20, prefix: '', suffix: '+', decimals: 0 },
+  { key: 'success', value: 85, prefix: '', suffix: '%', decimals: 0 },
 ] as const;
 
 export default function ResultsSection() {
@@ -64,7 +64,7 @@ function StatCard({
       >
         {prefix}0{suffix}
       </span>
-      <span className="mt-3 text-gray text-sm md:text-base block">
+      <span className="mt-3 text-gray text-base md:text-lg block">
         {label}
       </span>
     </div>

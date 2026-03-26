@@ -1,32 +1,138 @@
 'use client';
 
+import { useRef, useCallback, useEffect, type ReactNode } from 'react';
 import { useTranslations } from 'next-intl';
-import { useFadeInUp, useStaggerChildren } from '@/hooks/useScrollAnimation';
-import { motion } from 'framer-motion';
+import { useFadeInUp } from '@/hooks/useScrollAnimation';
 
-// Placeholder ecosystem logos — replace with real ones
-const ECOSYSTEMS = [
-  { name: 'Ethereum', color: '#627EEA' },
-  { name: 'Solana', color: '#9945FF' },
-  { name: 'Polygon', color: '#8247E5' },
-  { name: 'Avalanche', color: '#E84142' },
-  { name: 'Arbitrum', color: '#28A0F0' },
-  { name: 'Optimism', color: '#FF0420' },
-  { name: 'Near', color: '#00EC97' },
-  { name: 'Cosmos', color: '#2E3148' },
-  { name: 'Starknet', color: '#EC796B' },
-  { name: 'Aptos', color: '#2DD8A3' },
-  { name: 'Sui', color: '#6FBCF0' },
-  { name: 'Base', color: '#0052FF' },
+const PARTNERS: { name: string; file: string; h: string; url: string }[] = [
+  { name: 'BPI France', file: 'BPIFrance', h: 'h-10', url: 'https://www.bpifrance.com/' },
+  { name: 'Outlier Ventures', file: 'Outlier Ventures', h: 'h-7', url: 'https://outlierventures.io/' },
+  { name: 'Pixelette', file: 'Pixelette', h: 'h-10', url: 'https://pixelettetech.com/' },
+  { name: 'PRIM3', file: 'PRIM3', h: 'h-9', url: 'https://prim3.vc/' },
+  { name: 'Syndika', file: 'syndika', h: 'h-7', url: 'https://syndika.co/' },
+  { name: '50 Partners', file: '50 partners', h: 'h-10', url: 'https://www.50partners.fr/' },
+  { name: 'Kryptosphere', file: 'Kryptoshere', h: 'h-10', url: 'https://www.kryptosphere.org/en' },
+  { name: 'Jobited', file: 'Jobited', h: 'h-6', url: 'https://jobited.com/' },
 ];
+
+const ECOSYSTEMS: { name: string; h: string; url: string }[] = [
+  { name: 'Solana', h: 'h-7', url: 'https://solana.com/' },
+  { name: 'Ripple', h: 'h-9', url: 'https://ripple.com/' },
+  { name: 'Stellar', h: 'h-10', url: 'https://stellar.org/' },
+  { name: 'Hedera', h: 'h-12', url: 'https://hedera.com/' },
+  { name: 'Tezos', h: 'h-12', url: 'https://tezos.com/' },
+  { name: 'Alephium', h: 'h-9', url: 'https://alephium.org/' },
+  { name: 'Arbitrium', h: 'h-12', url: 'https://arbitrum.io/' },
+  { name: 'ICP', h: 'h-8', url: 'https://internetcomputer.org/' },
+  { name: 'iExec', h: 'h-10', url: 'https://www.iex.ec/' },
+  { name: 'Starknet', h: 'h-11', url: 'https://www.starknet.io/' },
+];
+
+function EcosystemTrack() {
+  return (
+    <div className="marquee-track">
+      {ECOSYSTEMS.map(({ name, h, url }) => (
+        <a
+          key={name}
+          href={url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center justify-center px-12 cursor-pointer"
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={`/logo/${name}.svg`}
+            alt={name}
+            className={`${h} w-auto invert opacity-60 grayscale transition-all duration-300 ease-in-out hover:opacity-100 hover:grayscale-0 hover:scale-108`}
+          />
+        </a>
+      ))}
+    </div>
+  );
+}
+
+function PartnerTrack() {
+  return (
+    <div className="marquee-track">
+      {PARTNERS.map(({ name, file, h, url }) => (
+        <a
+          key={name}
+          href={url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center justify-center px-12 cursor-pointer"
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={`/Partenaire/${encodeURIComponent(file)}.svg`}
+            alt={name}
+            className={`${h} w-auto invert opacity-60 grayscale transition-all duration-300 ease-in-out hover:opacity-100 hover:grayscale-0 hover:scale-108`}
+          />
+        </a>
+      ))}
+    </div>
+  );
+}
+
+const NORMAL_SPEED = 0.5;
+const SLOW_SPEED = 0.15;
+const LERP_FACTOR = 0.03;
+
+function Marquee({ children, className, reverse }: { children: ReactNode; className?: string; reverse?: boolean }) {
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  const speed = useRef(NORMAL_SPEED);
+  const targetSpeed = useRef(NORMAL_SPEED);
+  const position = useRef(0);
+  const rafId = useRef(0);
+  const direction = reverse ? 1 : -1;
+
+  const animate = useCallback(() => {
+    speed.current += (targetSpeed.current - speed.current) * LERP_FACTOR;
+    position.current += speed.current * direction;
+
+    const el = wrapperRef.current;
+    if (el) {
+      const half = el.scrollWidth / 2;
+      if (direction === -1 && position.current <= -half) {
+        position.current += half;
+      } else if (direction === 1 && position.current >= 0) {
+        position.current -= half;
+      }
+      el.style.transform = `translateX(${position.current}px)`;
+    }
+
+    rafId.current = requestAnimationFrame(animate);
+  }, [direction]);
+
+  useEffect(() => {
+    if (reverse && wrapperRef.current) {
+      position.current = -(wrapperRef.current.scrollWidth / 2);
+    }
+    rafId.current = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(rafId.current);
+  }, [animate, reverse]);
+
+  return (
+    <div
+      className={`relative overflow-x-clip overflow-y-visible py-4 ${className ?? ''}`}
+      onMouseEnter={() => { targetSpeed.current = SLOW_SPEED; }}
+      onMouseLeave={() => { targetSpeed.current = NORMAL_SPEED; }}
+    >
+      <div className="absolute left-0 top-0 bottom-0 w-32 z-10 pointer-events-none bg-gradient-to-r from-black-light to-transparent" />
+      <div className="absolute right-0 top-0 bottom-0 w-32 z-10 pointer-events-none bg-gradient-to-l from-black-light to-transparent" />
+      <div ref={wrapperRef} className="marquee-track-wrapper">
+        {children}
+      </div>
+    </div>
+  );
+}
 
 export default function EcosystemSection() {
   const t = useTranslations('ecosystem');
   const titleRef = useFadeInUp<HTMLDivElement>();
-  const gridRef = useStaggerChildren<HTMLDivElement>(0.08);
 
   return (
-    <section id="ecosystem" className="relative py-32 px-6 bg-black-light">
+    <section id="ecosystem" className="relative py-32 px-6 bg-black-light overflow-hidden">
       <div className="max-w-6xl mx-auto">
         <div ref={titleRef} className="text-center mb-16">
           <span className="text-red text-sm font-semibold tracking-widest uppercase">
@@ -35,31 +141,21 @@ export default function EcosystemSection() {
           <h2 className="mt-4 text-4xl md:text-5xl font-bold">{t('title')}</h2>
           <p className="mt-4 text-gray max-w-xl mx-auto">{t('subtitle')}</p>
         </div>
-
-        <div
-          ref={gridRef}
-          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6"
-        >
-          {ECOSYSTEMS.map((eco) => (
-            <motion.div
-              key={eco.name}
-              className="group bg-black border border-white/5 rounded-xl p-6 flex flex-col items-center justify-center gap-3 hover:border-white/20 transition-all duration-300"
-              whileHover={{ scale: 1.05 }}
-            >
-              {/* Placeholder logo circle */}
-              <div
-                className="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-lg"
-                style={{ backgroundColor: eco.color + '20', color: eco.color }}
-              >
-                {eco.name[0]}
-              </div>
-              <span className="text-xs text-gray group-hover:text-white transition-colors">
-                {eco.name}
-              </span>
-            </motion.div>
-          ))}
-        </div>
       </div>
+
+      {/* Ecosystem marquee */}
+      <Marquee>
+        <EcosystemTrack />
+        <EcosystemTrack />
+      </Marquee>
+
+      {/* Partners marquee */}
+      <Marquee className="mt-10" reverse>
+        <PartnerTrack />
+        <PartnerTrack />
+        <PartnerTrack />
+        <PartnerTrack />
+      </Marquee>
     </section>
   );
 }

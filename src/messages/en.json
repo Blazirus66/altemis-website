@@ -11,7 +11,7 @@
   "hero": {
     "title1": "Accelerate your",
     "title2": "blockchain expansion",
-    "subtitle": "From strategy to funding to execution — we help tech companies grow across blockchain ecosystems.",
+    "subtitle": "From strategy to funding to delivery, we support your expansion across the most relevant blockchain ecosystems for your business.",
     "cta": "Book a strategy call",
     "scroll": "Scroll to discover"
   },
@@ -20,15 +20,15 @@
     "title": "Three pillars for your Web3 growth",
     "strategy": {
       "title": "Strategy",
-      "desc": "Positioning audit, target ecosystem identification, integration roadmap and Web3-adapted go-to-market."
+      "desc": "Positioning analysis and identification of the most relevant blockchain ecosystems based on your challenges, whether it's acquisition, access to new types of clients, or product evolution."
     },
     "funding": {
       "title": "Funding",
-      "desc": "Grant application structuring, foundation introductions, and end-to-end support until funding is secured."
+      "desc": "Scoping and structuring the application, connecting with blockchain foundations and the most relevant stakeholders, with follow-up at every stage until funding is secured."
     },
     "execution": {
-      "title": "Execution",
-      "desc": "Operational deployment, technical integrations, strategic partnerships and performance tracking across ecosystems."
+      "title": "Delivery",
+      "desc": "Hands-on development using the native technologies of targeted ecosystems, in collaboration with your teams. Support designed to ship fast and build lasting expertise."
     }
   },
   "results": {
@@ -61,8 +61,8 @@
   },
   "ecosystem": {
     "badge": "Ecosystem",
-    "title": "They trust us",
-    "subtitle": "We work with the most established blockchain foundations in the industry."
+    "title": "Ecosystem & Partners",
+    "subtitle": "Our expertise was built alongside institutional players and blockchains. It now extends to every Web3 ecosystem that shares this culture of rigor."
   },
   "testimonials": {
     "badge": "Testimonials",
@@ -77,7 +77,9 @@
     "email": "Email",
     "message": "Your message",
     "send": "Send",
+    "sending": "Sending...",
     "sent": "Message sent!",
+    "error": "Error, try again",
     "namePlaceholder": "John Doe",
     "emailPlaceholder": "john@example.com",
     "messagePlaceholder": "Briefly describe your project..."

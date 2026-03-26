@@ -63,7 +63,7 @@ export default function ServicesSection() {
                 {icon}
               </div>
               <h3 className="text-xl font-bold mb-3">{t(`${key}.title`)}</h3>
-              <p className="text-gray leading-relaxed text-sm">
+              <p className="text-gray leading-relaxed text-base">
                 {t(`${key}.desc`)}
               </p>
               {/* Hover glow */}

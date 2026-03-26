@@ -74,12 +74,12 @@ export default function TestimonialsSection() {
               <span className="text-red text-6xl font-serif absolute top-4 left-6 opacity-30">
                 &ldquo;
               </span>
-              <p className="text-gray leading-relaxed mb-6 pt-8 text-sm">
+              <p className="text-gray leading-relaxed mb-6 pt-8 text-base">
                 {item.quote}
               </p>
               <div>
                 <p className="font-semibold text-white">{item.name}</p>
-                <p className="text-xs text-gray">{item.role}</p>
+                <p className="text-sm text-gray">{item.role}</p>
               </div>
             </div>
           ))}

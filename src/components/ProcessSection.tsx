@@ -47,7 +47,7 @@ export default function ProcessSection() {
                   <h3 className="text-xl md:text-2xl font-bold mb-2">
                     {t(`${step}.title`)}
                   </h3>
-                  <p className="text-gray leading-relaxed">
+                  <p className="text-gray leading-relaxed text-lg">
                     {t(`${step}.desc`)}
                   </p>
                 </div>

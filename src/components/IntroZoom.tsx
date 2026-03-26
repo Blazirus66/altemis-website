@@ -18,8 +18,8 @@ export default function IntroZoom() {
   const heroContentRef = useRef<HTMLDivElement>(null);
   const scrollHintRef = useRef<HTMLDivElement>(null);
 
-  const scrollToContact = () => {
-    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+  const openCalendly = () => {
+    window.open('https://calendly.com/d/cwnc-h9v-zk4/30-mins-altemis', '_blank');
   };
 
   useEffect(() => {
@@ -180,13 +180,13 @@ export default function IntroZoom() {
               <span className="text-red">{t('title2')}</span>
             </h1>
 
-            <p className="mt-6 text-lg md:text-xl text-gray max-w-2xl mx-auto leading-relaxed">
+            <p className="mt-6 text-xl md:text-2xl text-gray max-w-2xl mx-auto leading-relaxed">
               {t('subtitle')}
             </p>
 
             <div className="mt-10">
               <button
-                onClick={scrollToContact}
+                onClick={openCalendly}
                 className="btn-red-fill bg-red hover:bg-red/90 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all"
               >
                 {t('cta')}

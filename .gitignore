@@ -23,7 +23,10 @@ next-env.d.ts
 # debug
 npm-debug.log*
 
-# images de test
+# images de test (hors public/)
 *.jpeg
 *.jpg
 *.png
+!public/**/*.jpeg
+!public/**/*.jpg
+!public/**/*.png

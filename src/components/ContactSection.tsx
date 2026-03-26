@@ -69,7 +69,7 @@ function SlideToBook({ label }: { label: string }) {
       setUnlocked(true);
       setDragging(false);
       // Open Calendly - replace with your link
-      window.open('https://calendly.com', '_blank');
+      window.open('https://calendly.com/d/cwnc-h9v-zk4/30-mins-altemis', '_blank');
       setTimeout(() => {
         setUnlocked(false);
         setOffset(0);
@@ -132,13 +132,35 @@ function SlideToBook({ label }: { label: string }) {
 
 function ContactForm() {
   const t = useTranslations('contact');
-  const [sent, setSent] = useState(false);
+  const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // TODO: integrate with your backend / form service
-    setSent(true);
-    setTimeout(() => setSent(false), 3000);
+    setStatus('sending');
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: formData.get('name'),
+          email: formData.get('email'),
+          message: formData.get('message'),
+        }),
+      });
+
+      if (!res.ok) throw new Error();
+
+      setStatus('sent');
+      form.reset();
+      setTimeout(() => setStatus('idle'), 4000);
+    } catch {
+      setStatus('error');
+      setTimeout(() => setStatus('idle'), 4000);
+    }
   };
 
   return (
@@ -147,6 +169,7 @@ function ContactForm() {
         <label className="block text-sm text-gray mb-2">{t('name')}</label>
         <input
           type="text"
+          name="name"
           required
           placeholder={t('namePlaceholder')}
           className="w-full bg-black-light border border-white/10 rounded-xl px-5 py-3.5 text-white placeholder:text-white/20 focus:outline-none focus:border-red/50 transition-colors"
@@ -156,6 +179,7 @@ function ContactForm() {
         <label className="block text-sm text-gray mb-2">{t('email')}</label>
         <input
           type="email"
+          name="email"
           required
           placeholder={t('emailPlaceholder')}
           className="w-full bg-black-light border border-white/10 rounded-xl px-5 py-3.5 text-white placeholder:text-white/20 focus:outline-none focus:border-red/50 transition-colors"
@@ -164,6 +188,7 @@ function ContactForm() {
       <div>
         <label className="block text-sm text-gray mb-2">{t('message')}</label>
         <textarea
+          name="message"
           required
           rows={4}
           placeholder={t('messagePlaceholder')}
@@ -172,9 +197,13 @@ function ContactForm() {
       </div>
       <button
         type="submit"
-        className="btn-red-fill w-full bg-red text-white py-4 rounded-xl font-semibold text-lg transition-all hover:shadow-lg hover:shadow-red/20"
+        disabled={status === 'sending'}
+        className="btn-red-fill w-full bg-red text-white py-4 rounded-xl font-semibold text-lg transition-all hover:shadow-lg hover:shadow-red/20 disabled:opacity-60 disabled:cursor-not-allowed"
       >
-        {sent ? t('sent') : t('send')}
+        {status === 'sending' && t('sending')}
+        {status === 'sent' && t('sent')}
+        {status === 'error' && t('error')}
+        {status === 'idle' && t('send')}
       </button>
     </form>
   );
