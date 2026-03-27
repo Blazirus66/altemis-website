@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useRouter, usePathname } from '@/i18n/navigation';
@@ -15,24 +15,15 @@ const NAV_ITEMS = [
   'contact',
 ] as const;
 
-export default function Navbar() {
+interface NavbarProps {
+  visible?: boolean;
+}
+
+export default function Navbar({ visible = false }: NavbarProps) {
   const t = useTranslations('nav');
   const router = useRouter();
   const pathname = usePathname();
-  const [scrolled, setScrolled] = useState(false);
-  const [visible, setVisible] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => {
-      // Show navbar only after passing ~60% of the intro zoom (h-[400vh])
-      const introThreshold = window.innerHeight * 2.4;
-      setVisible(window.scrollY > introThreshold);
-      setScrolled(window.scrollY > introThreshold + 50);
-    };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
 
   const scrollTo = (id: string) => {
     setMobileOpen(false);
@@ -47,11 +38,7 @@ export default function Navbar() {
   return (
     <>
       <motion.nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled
-            ? 'bg-black/80 backdrop-blur-md border-b border-white/5'
-            : 'bg-transparent'
-        }`}
+        className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-black/80 backdrop-blur-md border-b border-white/5"
         initial={{ y: -100 }}
         animate={{ y: visible ? 0 : -100 }}
         transition={{ duration: 0.4, ease: 'easeOut' }}

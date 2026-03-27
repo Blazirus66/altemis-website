@@ -68,12 +68,8 @@ function SlideToBook({ label }: { label: string }) {
     if (x >= rect.width - 80) {
       setUnlocked(true);
       setDragging(false);
-      // Open Calendly - replace with your link
-      window.open('https://calendly.com/d/cwnc-h9v-zk4/30-mins-altemis', '_blank');
-      setTimeout(() => {
-        setUnlocked(false);
-        setOffset(0);
-      }, 1500);
+      // Navigate to Calendly (native redirect avoids iOS popup blocker)
+      window.location.href = 'https://calendly.com/d/cwnc-h9v-zk4/30-mins-altemis';
     }
   };
 

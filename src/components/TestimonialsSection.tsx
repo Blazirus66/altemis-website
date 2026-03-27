@@ -7,41 +7,41 @@ const TESTIMONIALS = {
   fr: [
     {
       quote:
-        "Altemis nous a permis de sécuriser plus de $500K en grants en moins de 3 mois. Leur connaissance des écosystèmes est inégalée.",
-      name: 'Alexandre D.',
-      role: 'CEO, DeFi Protocol',
+        "Grâce à Altemis, nous avons financé une première learning map sur Stellar et posé les bases de notre expansion vers d'autres écosystèmes.",
+      name: 'Marvin Scaringella',
+      role: 'CEO, Venalabs',
     },
     {
       quote:
-        "Le process est clair, l'exécution impeccable. On a pu se concentrer sur notre produit pendant qu'Altemis gérait toute la partie écosystème.",
-      name: 'Sarah M.',
-      role: 'CTO, Infrastructure Web3',
+        "Cet accompagnement nous a permis de financer une solution blockchain adaptée à nos enjeux de traçabilité, d'auditabilité des composants aéronautique.",
+      name: 'Sébastien Batty',
+      role: 'CEO, Aerochain',
     },
     {
       quote:
-        "En 6 mois, on est passé de zéro à présent sur 4 écosystèmes majeurs grâce à leur accompagnement stratégique.",
-      name: 'Thomas L.',
-      role: 'Founder, Gaming Studio',
+        "Un accompagnement clé pour structurer le financement et le déploiement de nos produits DeFi, du liquid staking aux stratégies de rendement tokenisées.",
+      name: 'Ahmed Serghini',
+      role: 'CEO, Hatom',
     },
   ],
   en: [
     {
       quote:
-        'Altemis helped us secure over $500K in grants in less than 3 months. Their ecosystem knowledge is unmatched.',
-      name: 'Alexandre D.',
-      role: 'CEO, DeFi Protocol',
+        'Thanks to Altemis, we funded an initial learning map on Stellar and laid the foundations for our expansion into other ecosystems.',
+      name: 'Marvin Scaringella',
+      role: 'CEO, Venalabs',
     },
     {
       quote:
-        'The process is clear, execution flawless. We could focus on our product while Altemis handled the entire ecosystem side.',
-      name: 'Sarah M.',
-      role: 'CTO, Web3 Infrastructure',
+        'This support enabled us to fund a blockchain solution tailored to our traceability and auditability challenges for aeronautical components.',
+      name: 'Sébastien Batty',
+      role: 'CEO, Aerochain',
     },
     {
       quote:
-        'In 6 months, we went from zero to present on 4 major ecosystems thanks to their strategic support.',
-      name: 'Thomas L.',
-      role: 'Founder, Gaming Studio',
+        'Key support for structuring the funding and deployment of our DeFi products, from liquid staking to tokenized yield strategies.',
+      name: 'Ahmed Serghini',
+      role: 'CEO, Hatom',
     },
   ],
 };
@@ -68,13 +68,13 @@ export default function TestimonialsSection() {
           {items.map((item, i) => (
             <div
               key={i}
-              className="bg-black-light border border-white/5 rounded-2xl p-8 relative"
+              className="bg-black-light border border-white/5 rounded-2xl p-8 relative flex flex-col"
             >
               {/* Quote mark */}
               <span className="text-red text-6xl font-serif absolute top-4 left-6 opacity-30">
                 &ldquo;
               </span>
-              <p className="text-gray leading-relaxed mb-6 pt-8 text-base">
+              <p className="text-gray leading-relaxed mb-6 pt-8 text-base flex-grow">
                 {item.quote}
               </p>
               <div>

@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import Script from 'next/script';
 import '@/app/globals.css';
 
 export default function RootLayout({ children }: { children: ReactNode }) {
@@ -10,7 +11,21 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           rel="stylesheet"
         />
       </head>
-      <body className="bg-black text-white antialiased">{children}</body>
+      <body className="bg-black text-white antialiased">
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-JHMQTGWDQ5"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-JHMQTGWDQ5');
+          `}
+        </Script>
+        {children}
+      </body>
     </html>
   );
 }

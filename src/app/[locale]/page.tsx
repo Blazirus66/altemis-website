@@ -1,7 +1,9 @@
 'use client';
 
+import { useState } from 'react';
 import Navbar from '@/components/Navbar';
 import IntroZoom from '@/components/IntroZoom';
+import HeroSection from '@/components/HeroSection';
 import ServicesSection from '@/components/ServicesSection';
 import ResultsSection from '@/components/ResultsSection';
 import ProcessSection from '@/components/ProcessSection';
@@ -11,11 +13,18 @@ import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
 
 export default function HomePage() {
+  const [introActive, setIntroActive] = useState(true);
+
+  const handleIntroComplete = () => {
+    setIntroActive(false);
+  };
+
   return (
     <>
-      <Navbar />
+      <Navbar visible={!introActive} />
+      <IntroZoom active={introActive} onComplete={handleIntroComplete} />
       <main>
-        <IntroZoom />
+        <HeroSection />
         <ServicesSection />
         <ResultsSection />
         <ProcessSection />
